@@ -1,0 +1,43 @@
+﻿@{
+  Response.Redirect("/admin/admin");
+  Layout = "/layout/_layout-std.cshtml";
+}
+<div class="row" id="nav-main" style="min-height: 70px; border: 1px solid red;">
+  <nav class="navbar navbar-default" data-spy="affix" data-offset="115">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#beranda" data-toggle="tab">Beranda</a></li>
+      <li><a href="#produk" data-toggle="tab">Produk</a></li>
+      <li><a href="#tentang-kami" data-toggle="tab">Tentang Kami</a></li>
+      <li><a href="#cara-pembelian" data-toggle="tab">Cara Pembelian</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!--Tab Contents-->
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="beranda">
+    <p>beranda</p>
+    <p>not available.</p>
+    @for(var i = 0; i < 50; i++)
+    {
+      <p>@i</p>
+    }
+  </div>
+  <div class="tab-pane" id="produk">
+    <p>produk</p>
+    <p>not available.</p>
+  </div>
+  <div class="tab-pane" id="tentang-kami">
+    <p>tentang kami</p>
+    <p>not available.</p>
+  </div>
+  <div class="tab-pane" id="cara-pembelian">
+    <p>cara pembelian</p>
+    <p>not available.</p>
+  </div>
+</div>
+
+
+ 
+
+   

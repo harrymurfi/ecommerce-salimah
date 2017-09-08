@@ -1,0 +1,16 @@
+﻿<!-- Logon Sidebar -->
+<div class="panel panel-default" style="background-color: LavenderBlush; border: 1px solid lavender; margin-top: 10px">
+  <div class="panel-heading text-center"><h4>Login User</h4></div>
+  <div class="panel-body">
+    <h4>Welcome, @Session["current_user"]</h4>
+    <div class="btn-group btn-group-justified">
+      <a href="#" class="btn btn-primary">Setting</a>
+      <a href="#" class="btn btn-primary">History</a>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <form action="~/Contents/logout.cshtml" method="post">
+      <button class="btn btn-warning btn-block" type="submit" onclick="">Sign Out</button>
+    </form>
+  </div>
+</div>

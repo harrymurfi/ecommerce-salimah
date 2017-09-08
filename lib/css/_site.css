@@ -1,0 +1,27 @@
+body {
+  background-color: whitesmoke;
+  font-family:Calibri;
+}
+
+#main-nav.affix {
+  top: 0;
+  width: 100%;
+}
+
+#accordion.affix {
+  top: 50px;
+  width: 265px;
+  z-index: 1000;
+}
+
+#header-main {
+  border: 1px solid thistle;
+  background-color: whitesmoke;
+  min-height: 100px;
+}
+
+#header-main img:first-child {
+  padding: 16px;
+  max-width: 20%;
+  height: auto;
+}

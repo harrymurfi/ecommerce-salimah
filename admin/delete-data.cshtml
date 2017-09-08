@@ -1,0 +1,37 @@
+﻿@{
+  var message = "none";
+  try
+  {
+    var table = UrlData[0];
+    var code = UrlData[1];
+    var query = "";
+    switch(table)
+    {
+      case "Data Produk": query = "delete from product where product_id = @0;"; break;
+      case "Data Detail": query = "delete from product_detail where product_detail_id = @0;"; break;
+      case "Data Kategori": query = "delete from category where category_id = @0;"; break;
+      case "Data Ukuran": query = "delete from size where size_id = @0;"; break;
+      case "Data Warna": query = "delete from color where color_id = @0;"; break;
+      case "Data Gambar": query = "delete from image where image_id = @0;"; break;   
+    }
+
+    if(!query.IsEmpty())
+    {
+      try
+      {
+        var db = Database.Open("SalimahFashionDB");
+        db.Execute(query, code);
+        message = code + " from " + table + " succesfully deleted"; 
+      }
+      catch(Exception e)
+      {
+        message = "Cannot perform delete operation. " + e.Message;
+      }
+    }
+  }
+  catch(Exception ex)
+  {
+    message = "Couldn't handle this request. " + ex.Message; 
+  }  
+}
+@message

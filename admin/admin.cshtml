@@ -1,0 +1,139 @@
+﻿@{
+  var login = "";
+  Session["current_user"] = "admin";
+  Session["last_operation"] = "none";
+  if(Session["current_user"] == null || Session["current_user"] == "")
+  {
+    login = "/layout/_login-sidebar.cshtml";
+  }
+  else
+  {
+    login = "/layout/_logon-sidebar.cshtml";
+  }  
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/lib/css/_site.css"/> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/lib/js/_script.js"></script>
+</head>
+<body>
+  <div class="container-fluid" style="border: 1px solid grey; min-height: 700px;">
+    <!-- header -->
+    <div class="row" style="min-height: 50px; border: 1px solid red; padding: 5px">
+      <div class="col-md-12">
+        <p class="">user :@Session["current_user"]</p>
+      </div>
+    </div>
+
+    <!-- navigation menu -->
+    <div class="row" style="min-height: 50px; border: 1px solid blue">
+      <ul id="main-nav" class="nav navbar-nav nav-pills" data-spy="affix" data-offset="50" style="background-color: lavenderblush !important;">
+        <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Beranda</button></li>
+        <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Pengaturan</button></li>
+        <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Logout</button></li>
+      </ul> 
+    </div>
+
+    <!-- main content -->
+    <div class="row" style="min-height: 50px; border: 1px solid green; padding: 5px">
+      <!-- left sidebar -->
+      <div class="col-sm-2" id="content-left" style="min-height: 250px; border: 1px solid yellow; padding-left: 0;">
+        <div class="panel-group affix-top" id="accordion" data-spy="affix" data-offset-top="60" style="width: 210px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#manajemen-produk">Manajemen Produk</a>
+              </h4>
+            </div>
+            <div id="manajemen-produk" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewData(this.innerHTML)">Data Produk</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Detail</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kategori</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Ukuran</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Warna</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Gambar</button></li>
+                </ul> 
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#manajemen-data">Manajemen Data</a>
+              </h4>
+            </div>
+            <div id="manajemen-data" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kecamatan</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kota</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Provinsi</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Jasa Pengiriman</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Jenis Pengiriman</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Ongkos Kirim</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Backup And Restore</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#manajemen-laporan">Manajemen Laporan</a>
+              </h4>
+            </div>
+            <div id="manajemen-laporan" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Laporan</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Cetak Laporan</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#manajemen-transaksi">Manajemen Transaksi</a>
+              </h4>
+            </div>
+            <div id="manajemen-transaksi" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Pesanan</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Pembayaran</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Pengiriman</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Retur</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Statistik Produk</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Statistik Member</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!-- right content-->
+      <div class="col-sm-10" id="content-right" style="min-height: 500px; border: 1px solid purple"></div>
+
+    </div>
+
+    <!-- footer -->
+    <div class="row" style="min-height: 50px; border: 1px solid orange; padding: 5px">
+      <div class="col-md-12">
+        <p class="">footer</p>
+      </div>
+    </div>
+  </div>      
+</body>
+</html>

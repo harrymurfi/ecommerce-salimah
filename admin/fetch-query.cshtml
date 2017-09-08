@@ -1,0 +1,114 @@
+﻿@{
+  try
+  {
+    var table = UrlData[0];
+    if(table != null || !table.IsEmpty())
+    {
+      <p>@table</p>
+      var query = "";
+      switch(table)
+      {
+        case "Data Produk": query = "select * from product"; break;
+        case "Data Detail": query = "select * from product_detail"; break;
+        case "Data Kategori": query = "select * from category"; break;
+        case "Data Ukuran": query = "select * from size"; break;
+        case "Data Warna": query = "select * from color"; break;
+        case "Data Gambar": query = "select * from image"; break;   
+      }
+
+      if(!query.IsEmpty())
+      {
+        try
+        {
+          var db = Database.Open("SalimahFashionDB");
+          var data = db.Query(query);
+          string[] colData = data.ElementAt(0).Columns.ToArray();
+          
+          // data table
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      @foreach(var col in colData)
+                      {
+                          <th>@col</th>
+                      }
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach(var row in data)
+                  {
+                      <tr>
+                      @foreach(var col in colData)
+                      {
+                          <td>@row[col]</td>
+                      }
+                          <td><button class="btn btn-danger" onclick="deleteData('@table', '@row[colData[0]]')">Delete</button></td>
+                      </tr>
+                  }
+              </tbody>
+          </table>
+        }
+        catch(Exception e)
+        {
+          <p>Cannot perform query.</p>
+          <p>@e.Message</p>
+        }
+      }
+    }
+    else
+    {
+      <p>Request data cannot be null nor empty.</p>
+    }
+  }
+  catch(Exception ex)
+  {
+    <p>Couldn't handle this request.</p>
+    <p>@ex.Message</p>
+  }
+  
+  /*
+  try
+  {
+    var command = "";
+    switch(UrlData[0])
+    {
+        case "Data Produk" : command = "select * from product"; break;
+        case "Data Detail" : command = "select * from product_detail"; break;
+    }
+
+    var db = Database.Open("SalimahFashionDB");
+    var data = db.Query(command);
+    string[] colData = data.ElementAt(0).Columns.ToArray();
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                @foreach(var col in colData)
+                {
+                    <th>@col</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var row in data)
+            {
+                <tr>
+                @foreach(var col in colData)
+                {
+                    <td>@row[col]</td>
+                }
+                    
+                    <td>@colData[0]</td>
+                    <td>@row[colData[0]]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+  }
+  catch(Exception e)
+  {
+    <p>@e.Message</p>
+  }
+  */
+}
+
