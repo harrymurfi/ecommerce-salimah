@@ -44,9 +44,9 @@
     </div>
 
     <!-- main content -->
-    <div class="row" style="min-height: 50px; border: 1px solid green; padding: 5px">
+    <div class="row" style="min-height: 50px; padding: 5px">
       <!-- left sidebar -->
-      <div class="col-sm-2" id="content-left" style="min-height: 250px; border: 1px solid yellow; padding-left: 0;">
+      <div class="col-sm-2" id="sidebar-left" style="min-height: 250px; padding-left: 0;">
         <div class="panel-group affix-top" id="accordion" data-spy="affix" data-offset-top="60" style="width: 210px;">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -57,12 +57,12 @@
             <div id="manajemen-produk" class="panel-collapse collapse in">
               <div class="panel-body">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewData(this.innerHTML)">Data Produk</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Detail</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kategori</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Ukuran</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Warna</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Gambar</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Produk</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Detail</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Kategori</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Ukuran</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Warna</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Gambar</button></li>
                 </ul> 
               </div>
             </div>
@@ -76,12 +76,12 @@
             <div id="manajemen-data" class="panel-collapse collapse">
               <div class="panel-body">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kecamatan</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Kota</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Provinsi</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Jasa Pengiriman</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Jenis Pengiriman</button></li>
-                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Data Ongkos Kirim</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Kecamatan</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Kota</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Provinsi</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Jasa Pengiriman</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Jenis Pengiriman</button></li>
+                  <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn" onclick="viewDataTiming(this.innerHTML)">Data Ongkos Kirim</button></li>
                   <li><button type="button" class="btn btn-default btn-block btn-sm navbar-btn">Backup And Restore</button></li>
                 </ul>
               </div>
@@ -124,14 +124,25 @@
         </div> 
       </div>
       <!-- right content-->
-      <div class="col-sm-10" id="content-right" style="min-height: 500px; border: 1px solid purple"></div>
+      <div class="col-sm-10" id="sidebar-right" style="min-height: 500px; border: 1px solid gainsboro;">
+        <div id="content-loading" class="centralized" style="display: none">
+          <img src="/images/loader-fb.gif" alt="loading"/>
+        </div>
+        <div id="content-data" style="display: none">
+        </div>
+        <div id="content-add" style="display: none">
+        </div>
+        <div id="content-message" class="alert alert-warning" style="display: none">
+        </div>
+      </div>
 
     </div>
 
     <!-- footer -->
-    <div class="row" style="min-height: 50px; border: 1px solid orange; padding: 5px">
+    <div class="row" style="min-height: 50px; padding: 5px">
       <div class="col-md-12">
-        <p class="">footer</p>
+        <hr/>
+        <div class="centralized"><p>&copy Salimah Fashion 2017. Allright reserved.</p></div>
       </div>
     </div>
   </div>      

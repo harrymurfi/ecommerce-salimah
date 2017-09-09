@@ -24,7 +24,18 @@
       .affix {
         top: 0;
         width: 100%;
-      }  
+      }
+      
+      .flex-wrapper {
+        display: flex; justify-content: center; align-items: center;
+      }
+      
+      .centralized {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     </style>
   </head>
   <body>
@@ -41,10 +52,25 @@
           </div>
         </div>
       </div>
-      @for(var i = 0; i < 30; i++)
-      {
-        <p>@i</p>
-      }
+      <script>
+        function hideMe()
+        {
+          $("#demo").hide();
+        }
+
+        function showMe()
+        {
+          $("#demo").show();
+        }
+      </script>
+      <button onclick="hideMe()">Hide</button>
+      <button onclick="showMe()">Show</button>
+      <div id="demo" class="flex-wrapper" style="height: 500px; width: 500px; border: 1px dashed lime;">
+        <img src="/images/loader-fb.gif" alt="loading"/>
+      </div>
+      <div style="width: 500px; height: 500px; border: 1px dashed red; position: relative">
+        <div class="centralized"><img src="/images/loading.gif" alt="loading"/></div>
+      </div>
     </div>        
   </body>
 </html>
