@@ -4,7 +4,13 @@
     var table = UrlData[0];
     if(table != null || !table.IsEmpty())
     {
-      <p>@table</p>
+      <div id="content-loading" class="centralized" style="display: none">
+        <img src="/images/loader-fb.gif" alt="loading"/>
+      </div>
+      <div>
+        <h4>Viewing: <strong>@table</strong>&nbsp&nbsp&nbsp<button class="btn btn-primary" onclick="addData('@table')">Add New Data</button></h4>
+      </div>
+
       var query = "";
       switch(table)
       {
@@ -13,7 +19,13 @@
         case "Data Kategori": query = "select * from category"; break;
         case "Data Ukuran": query = "select * from size"; break;
         case "Data Warna": query = "select * from color"; break;
-        case "Data Gambar": query = "select * from image"; break;   
+        case "Data Gambar": query = "select * from image"; break;
+        case "Data Kecamatan": query = "select * from kecamatan"; break;
+        case "Data Kota": query = "select * from kota"; break;
+        case "Data Provinsi": query = "select * from provinsi"; break;
+        case "Data Jasa Pengiriman": query = "select * from jasa_pengiriman"; break;
+        case "Data Jenis Pengiriman": query = "select * from jenis_pengiriman"; break;
+        case "Data Ongkos Kirim": query = "select * from ongkos_kirim"; break;   
       }
 
       if(!query.IsEmpty())
@@ -65,50 +77,5 @@
     <p>Couldn't handle this request.</p>
     <p>@ex.Message</p>
   }
-  
-  /*
-  try
-  {
-    var command = "";
-    switch(UrlData[0])
-    {
-        case "Data Produk" : command = "select * from product"; break;
-        case "Data Detail" : command = "select * from product_detail"; break;
-    }
-
-    var db = Database.Open("SalimahFashionDB");
-    var data = db.Query(command);
-    string[] colData = data.ElementAt(0).Columns.ToArray();
-
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                @foreach(var col in colData)
-                {
-                    <th>@col</th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var row in data)
-            {
-                <tr>
-                @foreach(var col in colData)
-                {
-                    <td>@row[col]</td>
-                }
-                    
-                    <td>@colData[0]</td>
-                    <td>@row[colData[0]]</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-  }
-  catch(Exception e)
-  {
-    <p>@e.Message</p>
-  }
-  */
 }
 

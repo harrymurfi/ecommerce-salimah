@@ -25,3 +25,18 @@ body {
   max-width: 20%;
   height: auto;
 }
+
+
+.flex-wrapper {
+  display: flex; justify-content: center; align-items: center;
+}
+
+/*parent position: relative*/
+.centralized {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+

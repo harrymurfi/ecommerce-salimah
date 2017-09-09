@@ -21,7 +21,7 @@
       {
         var db = Database.Open("SalimahFashionDB");
         db.Execute(query, code);
-        message = code + " from " + table + " succesfully deleted"; 
+        message = "'" + code + "' from '" + table + "' has been deleted"; 
       }
       catch(Exception e)
       {
